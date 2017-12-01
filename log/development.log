@@ -2694,3 +2694,336 @@ Processing by Api::V1::ChallengesController#show as HTML
 Completed 200 OK in 73ms (Views: 0.1ms | ActiveRecord: 16.1ms)
 
 
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "Nick"], ["password", "abc"], ["created_at", "2017-12-01 16:10:07.692300"], ["updated_at", "2017-12-01 16:10:07.692300"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "Robert"], ["password", "abc"], ["created_at", "2017-12-01 16:10:07.696547"], ["updated_at", "2017-12-01 16:10:07.696547"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "Ramy"], ["password", "abc"], ["created_at", "2017-12-01 16:10:07.698617"], ["updated_at", "2017-12-01 16:10:07.698617"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "challenges" ("name", "description", "public", "created_at", "updated_at", "team_names") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Blogging in Style"], ["description", "Who can wear the most formal outfit to blogs?"], ["public", "t"], ["created_at", "2017-12-01 16:10:07.718980"], ["updated_at", "2017-12-01 16:10:07.718980"], ["team_names", "The Avengers/The Incredibles"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mChallenge Load (0.3ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "user_challenges" ("user_id", "challenge_id", "role", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 2], ["challenge_id", 1], ["role", "2"], ["created_at", "2017-12-01 16:10:07.755488"], ["updated_at", "2017-12-01 16:10:07.755488"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mChallenge Load (0.2ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "user_challenges" ("user_id", "challenge_id", "role", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 3], ["challenge_id", 1], ["role", "3"], ["created_at", "2017-12-01 16:10:07.760412"], ["updated_at", "2017-12-01 16:10:07.760412"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/v1/challenges/1" for 127.0.0.1 at 2017-12-01 11:10:19 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ChallengesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mChallenge Load (0.5ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserChallenge Load (0.4ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 87ms (Views: 0.1ms | ActiveRecord: 16.0ms)
+
+
+  [1m[35mSQL (2.5ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[35mSQL (2.3ms)[0m  [1m[31mDELETE FROM "challenges"[0m
+  [1m[35mSQL (2.1ms)[0m  [1m[31mDELETE FROM "user_challenges"[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "Nick"], ["password", "abc"], ["created_at", "2017-12-01 16:10:55.355830"], ["updated_at", "2017-12-01 16:10:55.355830"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "Robert"], ["password", "abc"], ["created_at", "2017-12-01 16:10:55.360619"], ["updated_at", "2017-12-01 16:10:55.360619"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "Ramy"], ["password", "abc"], ["created_at", "2017-12-01 16:10:55.362870"], ["updated_at", "2017-12-01 16:10:55.362870"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "challenges" ("name", "description", "public", "created_at", "updated_at", "team_names") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Blogging in Style"], ["description", "Who can wear the most formal outfit to blogs?"], ["public", "t"], ["created_at", "2017-12-01 16:10:55.384002"], ["updated_at", "2017-12-01 16:10:55.384002"], ["team_names", "The Avengers/The Incredibles"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mChallenge Load (0.3ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mChallenge Load (0.3ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Started GET "/api/v1/challenges/1" for 127.0.0.1 at 2017-12-01 11:10:56 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ChallengesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mChallenge Load (0.4ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 14ms (Views: 0.1ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/api/v1/challenges/1" for 127.0.0.1 at 2017-12-01 11:10:58 -0500
+Processing by Api::V1::ChallengesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mChallenge Load (0.8ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 20ms (Views: 0.3ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/api/v1/challenges/1" for 127.0.0.1 at 2017-12-01 11:10:58 -0500
+Processing by Api::V1::ChallengesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mChallenge Load (0.9ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/v1/challenges/1" for 127.0.0.1 at 2017-12-01 11:10:59 -0500
+Processing by Api::V1::ChallengesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mChallenge Load (1.3ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/api/v1/challenges/1" for 127.0.0.1 at 2017-12-01 11:10:59 -0500
+Processing by Api::V1::ChallengesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mChallenge Load (0.4ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/v1/challenges/1" for 127.0.0.1 at 2017-12-01 11:10:59 -0500
+Processing by Api::V1::ChallengesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mChallenge Load (0.4ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/v1/challenges/1" for 127.0.0.1 at 2017-12-01 11:11:02 -0500
+Processing by Api::V1::ChallengesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mChallenge Load (0.9ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/v1/challenges/1" for 127.0.0.1 at 2017-12-01 11:11:03 -0500
+Processing by Api::V1::ChallengesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mChallenge Load (0.3ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/challenges/1" for 127.0.0.1 at 2017-12-01 11:11:03 -0500
+Processing by Api::V1::ChallengesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mChallenge Load (0.4ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/v1/challenges/1" for 127.0.0.1 at 2017-12-01 11:11:03 -0500
+Processing by Api::V1::ChallengesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mChallenge Load (0.3ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/challenges/1" for 127.0.0.1 at 2017-12-01 11:11:10 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ChallengesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mChallenge Load (0.4ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 16ms (Views: 0.3ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/api/v1/challenges/1" for 127.0.0.1 at 2017-12-01 11:11:11 -0500
+Processing by Api::V1::ChallengesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mChallenge Load (0.7ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 17ms (Views: 0.1ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/api/v1/challenges" for 127.0.0.1 at 2017-12-01 11:11:13 -0500
+Processing by Api::V1::ChallengesController#index as HTML
+  [1m[36mChallenge Load (0.3ms)[0m  [1m[34mSELECT "challenges".* FROM "challenges"[0m
+  [1m[36mUserChallenge Load (0.3ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 4]]
+Completed 200 OK in 33ms (Views: 0.1ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/api/v1/challenges" for 127.0.0.1 at 2017-12-01 11:11:18 -0500
+Processing by Api::V1::ChallengesController#index as HTML
+  [1m[36mChallenge Load (0.3ms)[0m  [1m[34mSELECT "challenges".* FROM "challenges"[0m
+  [1m[36mUserChallenge Load (0.3ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 4]]
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.6ms)
+
+
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "user_challenges"[0m
+  [1m[35mSQL (2.5ms)[0m  [1m[31mDELETE FROM "challenges"[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[31mDELETE FROM "users"[0m
+Started GET "/api/v1/challenges" for 127.0.0.1 at 2017-12-01 11:12:19 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ChallengesController#index as HTML
+  [1m[36mChallenge Load (0.6ms)[0m  [1m[34mSELECT "challenges".* FROM "challenges"[0m
+Completed 200 OK in 12ms (Views: 0.1ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/api/v1/challenges" for 127.0.0.1 at 2017-12-01 11:12:20 -0500
+Processing by Api::V1::ChallengesController#index as HTML
+  [1m[36mChallenge Load (0.5ms)[0m  [1m[34mSELECT "challenges".* FROM "challenges"[0m
+Completed 200 OK in 17ms (Views: 0.1ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/api/v1/challenges" for 127.0.0.1 at 2017-12-01 11:12:20 -0500
+Processing by Api::V1::ChallengesController#index as HTML
+  [1m[36mChallenge Load (0.3ms)[0m  [1m[34mSELECT "challenges".* FROM "challenges"[0m
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "Nick"], ["password", "abc"], ["created_at", "2017-12-01 16:12:26.927890"], ["updated_at", "2017-12-01 16:12:26.927890"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "Robert"], ["password", "abc"], ["created_at", "2017-12-01 16:12:26.932852"], ["updated_at", "2017-12-01 16:12:26.932852"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "Ramy"], ["password", "abc"], ["created_at", "2017-12-01 16:12:26.935093"], ["updated_at", "2017-12-01 16:12:26.935093"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "challenges" ("name", "description", "public", "created_at", "updated_at", "team_names") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Blogging in Style"], ["description", "Who can wear the most formal outfit to blogs?"], ["public", "t"], ["created_at", "2017-12-01 16:12:26.957222"], ["updated_at", "2017-12-01 16:12:26.957222"], ["team_names", "The Avengers/The Incredibles"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mChallenge Load (0.3ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mChallenge Load (0.2ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "challenges" ("name", "description", "public", "created_at", "updated_at", "team_names") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Blogging in Style"], ["description", "Who can wear the most formal outfit to blogs?"], ["public", "t"], ["created_at", "2017-12-01 16:13:06.484415"], ["updated_at", "2017-12-01 16:13:06.484415"], ["team_names", "The Avengers/The Incredibles"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "JOHN"], ["created_at", "2017-12-01 16:13:46.742581"], ["updated_at", "2017-12-01 16:13:46.742581"]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "user_challenges"[0m
+  [1m[35mSQL (2.3ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[35mSQL (2.4ms)[0m  [1m[31mDELETE FROM "challenges"[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "Nick"], ["password", "abc"], ["created_at", "2017-12-01 16:15:22.889310"], ["updated_at", "2017-12-01 16:15:22.889310"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "Robert"], ["password", "abc"], ["created_at", "2017-12-01 16:15:22.894085"], ["updated_at", "2017-12-01 16:15:22.894085"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "Ramy"], ["password", "abc"], ["created_at", "2017-12-01 16:15:22.896239"], ["updated_at", "2017-12-01 16:15:22.896239"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "challenges" ("name", "description", "public", "created_at", "updated_at", "team_names") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Blogging in Style"], ["description", "Who can wear the most formal outfit to blogs?"], ["public", "t"], ["created_at", "2017-12-01 16:15:22.919545"], ["updated_at", "2017-12-01 16:15:22.919545"], ["team_names", "The Avengers/The Incredibles"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "user_challenges" ("user_id", "challenge_id", "role", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 17], ["challenge_id", 7], ["role", "1"], ["created_at", "2017-12-01 16:15:22.938913"], ["updated_at", "2017-12-01 16:15:22.938913"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "Nick"], ["password", "abc"], ["created_at", "2017-12-01 16:15:33.959981"], ["updated_at", "2017-12-01 16:15:33.959981"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "Robert"], ["password", "abc"], ["created_at", "2017-12-01 16:15:33.972600"], ["updated_at", "2017-12-01 16:15:33.972600"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "Ramy"], ["password", "abc"], ["created_at", "2017-12-01 16:15:34.146120"], ["updated_at", "2017-12-01 16:15:34.146120"]]
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "challenges" ("name", "description", "public", "created_at", "updated_at", "team_names") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Blogging in Style"], ["description", "Who can wear the most formal outfit to blogs?"], ["public", "t"], ["created_at", "2017-12-01 16:15:38.451722"], ["updated_at", "2017-12-01 16:15:38.451722"], ["team_names", "The Avengers/The Incredibles"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "user_challenges" ("user_id", "challenge_id", "role", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 20], ["challenge_id", 8], ["role", "1"], ["created_at", "2017-12-01 16:15:45.554230"], ["updated_at", "2017-12-01 16:15:45.554230"]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35mSQL (2.2ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[35mSQL (2.2ms)[0m  [1m[31mDELETE FROM "challenges"[0m
+  [1m[35mSQL (2.2ms)[0m  [1m[31mDELETE FROM "user_challenges"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "Nick"], ["password", "abc"], ["created_at", "2017-12-01 16:17:54.740516"], ["updated_at", "2017-12-01 16:17:54.740516"]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "Robert"], ["password", "abc"], ["created_at", "2017-12-01 16:17:54.746006"], ["updated_at", "2017-12-01 16:17:54.746006"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "Ramy"], ["password", "abc"], ["created_at", "2017-12-01 16:17:55.019384"], ["updated_at", "2017-12-01 16:17:55.019384"]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "challenges" ("name", "description", "public", "created_at", "updated_at", "team_names") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Blogging in Style"], ["description", "Who can wear the most formal outfit to blogs?"], ["public", "t"], ["created_at", "2017-12-01 16:17:59.013120"], ["updated_at", "2017-12-01 16:17:59.013120"], ["team_names", "The Avengers/The Incredibles"]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mChallenge Load (0.6ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "user_challenges" ("user_id", "challenge_id", "role", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 23], ["challenge_id", 9], ["role", "1"], ["created_at", "2017-12-01 16:18:04.046381"], ["updated_at", "2017-12-01 16:18:04.046381"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mChallenge Load (0.4ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "user_challenges" ("user_id", "challenge_id", "role", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 24], ["challenge_id", 9], ["role", "2"], ["created_at", "2017-12-01 16:18:22.142304"], ["updated_at", "2017-12-01 16:18:22.142304"]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mChallenge Load (0.6ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "user_challenges" ("user_id", "challenge_id", "role", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 25], ["challenge_id", 9], ["role", "3"], ["created_at", "2017-12-01 16:18:22.429018"], ["updated_at", "2017-12-01 16:18:22.429018"]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUserChallenge Load (0.3ms)[0m  [1m[34mSELECT  "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 9], ["LIMIT", 11]]
+  [1m[35mSQL (2.5ms)[0m  [1m[31mDELETE FROM "user_challenges"[0m
+  [1m[35mSQL (2.3ms)[0m  [1m[31mDELETE FROM "challenges"[0m
+  [1m[35mSQL (2.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "Nick"], ["password", "abc"], ["created_at", "2017-12-01 16:19:04.658852"], ["updated_at", "2017-12-01 16:19:04.658852"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "Robert"], ["password", "abc"], ["created_at", "2017-12-01 16:19:04.662910"], ["updated_at", "2017-12-01 16:19:04.662910"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "Ramy"], ["password", "abc"], ["created_at", "2017-12-01 16:19:04.665144"], ["updated_at", "2017-12-01 16:19:04.665144"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "challenges" ("name", "description", "public", "created_at", "updated_at", "team_names") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Blogging in Style"], ["description", "Who can wear the most formal outfit to blogs?"], ["public", "t"], ["created_at", "2017-12-01 16:19:04.687535"], ["updated_at", "2017-12-01 16:19:04.687535"], ["team_names", "The Avengers/The Incredibles"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mChallenge Load (0.3ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "user_challenges" ("user_id", "challenge_id", "role", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 26], ["challenge_id", 10], ["role", "1"], ["created_at", "2017-12-01 16:19:04.714131"], ["updated_at", "2017-12-01 16:19:04.714131"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mChallenge Load (0.3ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "user_challenges" ("user_id", "challenge_id", "role", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 27], ["challenge_id", 10], ["role", "2"], ["created_at", "2017-12-01 16:19:04.718551"], ["updated_at", "2017-12-01 16:19:04.718551"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mChallenge Load (0.3ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "user_challenges" ("user_id", "challenge_id", "role", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 28], ["challenge_id", 10], ["role", "3"], ["created_at", "2017-12-01 16:19:04.722112"], ["updated_at", "2017-12-01 16:19:04.722112"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/v1/challenges" for 127.0.0.1 at 2017-12-01 11:19:12 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ChallengesController#index as HTML
+  [1m[36mChallenge Load (0.9ms)[0m  [1m[34mSELECT "challenges".* FROM "challenges"[0m
+  [1m[36mUserChallenge Load (0.4ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 10]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+Completed 200 OK in 79ms (Views: 0.1ms | ActiveRecord: 18.5ms)
+
+
