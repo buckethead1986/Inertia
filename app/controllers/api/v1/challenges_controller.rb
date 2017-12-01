@@ -15,7 +15,6 @@ class Api::V1::ChallengesController < ActionController::API
 
   def create
     @challenge = Challenge.create(challenge_params)
-
   end
 
   private
