@@ -2393,3 +2393,25 @@ Processing by Api::V1::ChallengesController#index as HTML
 Completed 200 OK in 79ms (Views: 0.2ms | ActiveRecord: 15.9ms)
 
 
+Started GET "/api/v1/challenges" for 127.0.0.1 at 2017-12-01 10:54:01 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ChallengesController#index as HTML
+  [1m[36mChallenge Load (0.7ms)[0m  [1m[34mSELECT "challenges".* FROM "challenges"[0m
+  [1m[36mUserChallenge Load (0.4ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 80ms (Views: 0.1ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/api/v1/challenges/1" for 127.0.0.1 at 2017-12-01 10:54:04 -0500
+Processing by Api::V1::ChallengesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mChallenge Load (0.5ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserChallenge Load (0.4ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 27ms (Views: 0.2ms | ActiveRecord: 11.9ms)
+
+
