@@ -4919,3 +4919,160 @@ Processing by Api::V1::UserChallengesController#index as HTML
 Completed 200 OK in 28ms (Views: 0.2ms | ActiveRecord: 7.3ms)
 
 
+Started GET "/api/v1/user_challenges" for ::1 at 2017-12-01 17:22:37 -0500
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UserChallengesController#index as HTML
+  [1m[36mUserChallenge Load (0.6ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges"[0m
+Completed 200 OK in 22ms (Views: 0.2ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-01 17:22:39 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 50ms (Views: 16.8ms | ActiveRecord: 19.8ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-01 17:23:02 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-01 17:23:05 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/api/v1/challenges" for ::1 at 2017-12-01 17:24:20 -0500
+Processing by Api::V1::ChallengesController#create as JSON
+  Parameters: {"name"=>"", "description"=>"", "challenge_type"=>"", "criteria"=>"", "team_names"=>"Team A", "challenge"=>{"name"=>"", "description"=>"", "challenge_type"=>"", "criteria"=>"", "team_names"=>"Team A"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "challenges" ("name", "description", "challenge_type", "criteria", "created_at", "updated_at", "team_names") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", ""], ["description", ""], ["challenge_type", ""], ["criteria", ""], ["created_at", "2017-12-01 22:24:20.913068"], ["updated_at", "2017-12-01 22:24:20.913068"], ["team_names", "Team A"]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 204 No Content in 19ms (ActiveRecord: 7.5ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-01 17:24:45 -0500
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.4ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7090047271696813935)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to Users (20171201222547)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7090047271696813935)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7090047271696813935)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to Users (20171201222547)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7090047271696813935)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7090047271696813935)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddRoleToUsers (20171201222547)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7090047271696813935)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7090047271696813935)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddRoleToUsers (20171201222931)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7090047271696813935)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7090047271696813935)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddRoleToUsers (20171201222931)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7090047271696813935)[0m
+Started GET "/api/v1/user_challenges" for ::1 at 2017-12-01 17:31:43 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UserChallengesController#index as HTML
+  [1m[36mUserChallenge Load (0.7ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges"[0m
+Completed 200 OK in 26ms (Views: 0.2ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-01 17:44:07 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 40ms (Views: 15.1ms | ActiveRecord: 17.6ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-01 17:45:18 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-01 17:45:43 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-01 17:46:14 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-01 17:49:57 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-01 17:52:17 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-01 17:52:58 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-01 17:53:57 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-01 17:55:12 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-01 17:55:34 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-01 17:55:38 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-01 17:56:27 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-01 17:57:19 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-01 17:57:22 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-01 17:57:52 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 2.1ms | ActiveRecord: 0.2ms)
+
+
