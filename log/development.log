@@ -14140,3 +14140,18 @@ Processing by Api::V1::UsersController#index as */*
 Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.2ms)
 
 
+  [1m[35m (18.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7090047271696813935)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangePasswordToPasswordDigest (20171204143741)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (28.7ms)[0m  [1m[35mALTER TABLE "users" RENAME COLUMN "password" TO "password_digest"[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171204143741"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (3.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7090047271696813935)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "robert"], ["password_digest", "$2a$10$dWdXGSwW1g.F3skWMz.IwuuRi7DsE1hei71uhaihbFJDOfj74lQZ2"], ["created_at", "2017-12-04 14:39:06.571040"], ["updated_at", "2017-12-04 14:39:06.571040"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
