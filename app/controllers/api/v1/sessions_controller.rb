@@ -2,6 +2,7 @@ class Api::V1::SessionsController < ApplicationController
   skip_before_action :authorized, only: [:create]
 
   def show
+    byebug
     render json: {
       id: current_user.id,
       username: current_user.username
