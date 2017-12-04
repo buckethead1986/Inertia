@@ -15,11 +15,12 @@ class Api::V1::ChallengesController < ActionController::API
 
   def create
     @challenge = Challenge.create(challenge_params)
+    render json: @challenge.to_json
   end
 
   private
 
   def challenge_params
-    params.require(:challenge).permit(:name, :description, :challenge_type, :criteria, :team_names)
+    params.require(:challenge).permit(:name, :description, :challenge_type, :criteria, :team_names, :public)
   end
 end
