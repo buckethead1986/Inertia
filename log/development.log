@@ -10392,3 +10392,492 @@ Processing by Api::V1::UsersController#index as */*
 Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.2ms)
 
 
+Started GET "/api/v1/users" for ::1 at 2017-12-03 21:08:11 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 22ms (Views: 10.0ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-03 21:08:32 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 15ms (Views: 7.5ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-03 21:08:40 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-03 21:08:43 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/v1/challenges" for ::1 at 2017-12-03 21:09:18 -0500
+Processing by Api::V1::ChallengesController#create as JSON
+  Parameters: {"name"=>"Hey", "description"=>"Hey", "challenge_type"=>"Deadline", "criteria"=>"2017-12-08T05:00:00.000Z", "public"=>true, "team_names"=>"Hey/Hey2", "user_challenges"=>[], "challenge"=>{"name"=>"Hey", "description"=>"Hey", "challenge_type"=>"Deadline", "criteria"=>"2017-12-08T05:00:00.000Z", "public"=>true, "team_names"=>"Hey/Hey2"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "challenges" ("name", "description", "challenge_type", "criteria", "public", "created_at", "updated_at", "team_names") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Hey"], ["description", "Hey"], ["challenge_type", "Deadline"], ["criteria", "2017-12-08T05:00:00.000Z"], ["public", "t"], ["created_at", "2017-12-04 02:09:18.135575"], ["updated_at", "2017-12-04 02:09:18.135575"], ["team_names", "Hey/Hey2"]]
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 20ms (Views: 0.2ms | ActiveRecord: 12.8ms)
+
+
+Started POST "/api/v1/user_challenges" for ::1 at 2017-12-03 21:09:18 -0500
+Started POST "/api/v1/user_challenges" for ::1 at 2017-12-03 21:09:18 -0500
+Started POST "/api/v1/user_challenges" for ::1 at 2017-12-03 21:09:18 -0500
+Processing by Api::V1::UserChallengesController#create as JSON
+Processing by Api::V1::UserChallengesController#create as JSON
+  Parameters: {"challenge_id"=>69, "user_id"=>5, "role"=>2, "user_challenge"=>{"challenge_id"=>69, "user_id"=>5, "role"=>2}}
+Processing by Api::V1::UserChallengesController#create as JSON
+  Parameters: {"challenge_id"=>69, "user_id"=>1, "role"=>3, "user_challenge"=>{"challenge_id"=>69, "user_id"=>1, "role"=>3}}
+  Parameters: {"challenge_id"=>69, "user_id"=>2, "role"=>1, "user_challenge"=>{"user_id"=>2, "challenge_id"=>69, "role"=>1}}
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mChallenge Load (1.5ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 69], ["LIMIT", 1]]
+  [1m[36mChallenge Load (0.4ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 69], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "user_challenges" ("user_id", "challenge_id", "role", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 2], ["challenge_id", 69], ["role", "1"], ["created_at", "2017-12-04 02:09:18.209710"], ["updated_at", "2017-12-04 02:09:18.209710"]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "user_challenges" ("user_id", "challenge_id", "role", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 5], ["challenge_id", 69], ["role", "2"], ["created_at", "2017-12-04 02:09:18.211430"], ["updated_at", "2017-12-04 02:09:18.211430"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 44ms (Views: 0.1ms | ActiveRecord: 8.1ms)
+
+
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 48ms (Views: 0.2ms | ActiveRecord: 17.9ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChallenge Load (0.6ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 69], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "user_challenges" ("user_id", "challenge_id", "role", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["challenge_id", 69], ["role", "3"], ["created_at", "2017-12-04 02:09:18.222576"], ["updated_at", "2017-12-04 02:09:18.222576"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 55ms (Views: 0.1ms | ActiveRecord: 14.5ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-03 21:10:20 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-03 21:10:31 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/v1/challenges" for ::1 at 2017-12-03 21:10:36 -0500
+Processing by Api::V1::ChallengesController#create as JSON
+  Parameters: {"name"=>"", "description"=>"", "challenge_type"=>"", "criteria"=>"", "public"=>true, "team_names"=>"Team A/Team B", "user_challenges"=>[], "challenge"=>{"name"=>"", "description"=>"", "challenge_type"=>"", "criteria"=>"", "public"=>true, "team_names"=>"Team A/Team B"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "challenges" ("name", "description", "challenge_type", "criteria", "public", "created_at", "updated_at", "team_names") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", ""], ["description", ""], ["challenge_type", ""], ["criteria", ""], ["public", "t"], ["created_at", "2017-12-04 02:10:36.090278"], ["updated_at", "2017-12-04 02:10:36.090278"], ["team_names", "Team A/Team B"]]
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-03 21:11:02 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/v1/challenges" for ::1 at 2017-12-03 21:11:04 -0500
+Processing by Api::V1::ChallengesController#create as JSON
+  Parameters: {"name"=>"", "description"=>"", "challenge_type"=>"", "criteria"=>"", "public"=>true, "team_names"=>"Team A/Team B", "user_challenges"=>[], "challenge"=>{"name"=>"", "description"=>"", "challenge_type"=>"", "criteria"=>"", "public"=>true, "team_names"=>"Team A/Team B"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "challenges" ("name", "description", "challenge_type", "criteria", "public", "created_at", "updated_at", "team_names") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", ""], ["description", ""], ["challenge_type", ""], ["criteria", ""], ["public", "t"], ["created_at", "2017-12-04 02:11:04.161104"], ["updated_at", "2017-12-04 02:11:04.161104"], ["team_names", "Team A/Team B"]]
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-03 21:14:14 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/v1/challenges" for ::1 at 2017-12-03 21:14:23 -0500
+Processing by Api::V1::ChallengesController#create as JSON
+  Parameters: {"name"=>"", "description"=>"", "challenge_type"=>"", "criteria"=>"", "public"=>true, "team_names"=>"Team A/Team B", "user_challenges"=>[], "challenge"=>{"name"=>"", "description"=>"", "challenge_type"=>"", "criteria"=>"", "public"=>true, "team_names"=>"Team A/Team B"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "challenges" ("name", "description", "challenge_type", "criteria", "public", "created_at", "updated_at", "team_names") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", ""], ["description", ""], ["challenge_type", ""], ["criteria", ""], ["public", "t"], ["created_at", "2017-12-04 02:14:23.139201"], ["updated_at", "2017-12-04 02:14:23.139201"], ["team_names", "Team A/Team B"]]
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 6.1ms)
+
+
+Started POST "/api/v1/challenges" for ::1 at 2017-12-03 21:14:26 -0500
+Processing by Api::V1::ChallengesController#create as JSON
+  Parameters: {"name"=>"", "description"=>"", "challenge_type"=>"", "criteria"=>"", "public"=>true, "team_names"=>"Team A/Team B", "user_challenges"=>[], "challenge"=>{"name"=>"", "description"=>"", "challenge_type"=>"", "criteria"=>"", "public"=>true, "team_names"=>"Team A/Team B"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "challenges" ("name", "description", "challenge_type", "criteria", "public", "created_at", "updated_at", "team_names") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", ""], ["description", ""], ["challenge_type", ""], ["criteria", ""], ["public", "t"], ["created_at", "2017-12-04 02:14:26.245507"], ["updated_at", "2017-12-04 02:14:26.245507"], ["team_names", "Team A/Team B"]]
+  [1m[35m (5.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-03 21:15:00 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-03 21:15:03 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-03 21:15:33 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/v1/challenges" for ::1 at 2017-12-03 21:15:36 -0500
+Processing by Api::V1::ChallengesController#create as JSON
+  Parameters: {"name"=>"", "description"=>"", "challenge_type"=>"", "criteria"=>"", "public"=>true, "team_names"=>"Team A/Team B", "user_challenges"=>[], "challenge"=>{"name"=>"", "description"=>"", "challenge_type"=>"", "criteria"=>"", "public"=>true, "team_names"=>"Team A/Team B"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "challenges" ("name", "description", "challenge_type", "criteria", "public", "created_at", "updated_at", "team_names") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", ""], ["description", ""], ["challenge_type", ""], ["criteria", ""], ["public", "t"], ["created_at", "2017-12-04 02:15:36.192368"], ["updated_at", "2017-12-04 02:15:36.192368"], ["team_names", "Team A/Team B"]]
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 6.4ms)
+
+
+Started POST "/api/v1/challenges" for ::1 at 2017-12-03 21:15:41 -0500
+Processing by Api::V1::ChallengesController#create as JSON
+  Parameters: {"name"=>"", "description"=>"", "challenge_type"=>"", "criteria"=>"", "public"=>true, "team_names"=>"Team A/Team B", "user_challenges"=>[], "challenge"=>{"name"=>"", "description"=>"", "challenge_type"=>"", "criteria"=>"", "public"=>true, "team_names"=>"Team A/Team B"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "challenges" ("name", "description", "challenge_type", "criteria", "public", "created_at", "updated_at", "team_names") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", ""], ["description", ""], ["challenge_type", ""], ["criteria", ""], ["public", "t"], ["created_at", "2017-12-04 02:15:41.266999"], ["updated_at", "2017-12-04 02:15:41.266999"], ["team_names", "Team A/Team B"]]
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-03 21:16:46 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-03 21:16:50 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-03 21:16:58 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-03 21:17:03 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-03 21:17:47 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-03 21:17:50 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-03 21:17:55 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/v1/challenges" for ::1 at 2017-12-03 21:17:58 -0500
+Processing by Api::V1::ChallengesController#create as JSON
+  Parameters: {"name"=>"", "description"=>"", "challenge_type"=>"", "criteria"=>"", "public"=>true, "team_names"=>"Team A/Team B", "user_challenges"=>[], "challenge"=>{"name"=>"", "description"=>"", "challenge_type"=>"", "criteria"=>"", "public"=>true, "team_names"=>"Team A/Team B"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "challenges" ("name", "description", "challenge_type", "criteria", "public", "created_at", "updated_at", "team_names") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", ""], ["description", ""], ["challenge_type", ""], ["criteria", ""], ["public", "t"], ["created_at", "2017-12-04 02:17:58.332945"], ["updated_at", "2017-12-04 02:17:58.332945"], ["team_names", "Team A/Team B"]]
+  [1m[35m (5.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-03 21:18:31 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/v1/challenges" for ::1 at 2017-12-03 21:18:33 -0500
+Processing by Api::V1::ChallengesController#create as JSON
+  Parameters: {"name"=>"", "description"=>"", "challenge_type"=>"", "criteria"=>"", "public"=>true, "team_names"=>"Team A/Team B", "user_challenges"=>[], "challenge"=>{"name"=>"", "description"=>"", "challenge_type"=>"", "criteria"=>"", "public"=>true, "team_names"=>"Team A/Team B"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "challenges" ("name", "description", "challenge_type", "criteria", "public", "created_at", "updated_at", "team_names") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", ""], ["description", ""], ["challenge_type", ""], ["criteria", ""], ["public", "t"], ["created_at", "2017-12-04 02:18:33.669757"], ["updated_at", "2017-12-04 02:18:33.669757"], ["team_names", "Team A/Team B"]]
+  [1m[35m (5.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 6.2ms)
+
+
+Started POST "/api/v1/challenges" for ::1 at 2017-12-03 21:18:38 -0500
+Processing by Api::V1::ChallengesController#create as JSON
+  Parameters: {"name"=>"", "description"=>"", "challenge_type"=>"", "criteria"=>"", "public"=>true, "team_names"=>"Team A/Team B", "user_challenges"=>[], "challenge"=>{"name"=>"", "description"=>"", "challenge_type"=>"", "criteria"=>"", "public"=>true, "team_names"=>"Team A/Team B"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "challenges" ("name", "description", "challenge_type", "criteria", "public", "created_at", "updated_at", "team_names") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", ""], ["description", ""], ["challenge_type", ""], ["criteria", ""], ["public", "t"], ["created_at", "2017-12-04 02:18:38.460749"], ["updated_at", "2017-12-04 02:18:38.460749"], ["team_names", "Team A/Team B"]]
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-03 21:18:58 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-03 21:19:01 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/api/v1/challenges" for ::1 at 2017-12-03 21:19:02 -0500
+Processing by Api::V1::ChallengesController#create as JSON
+  Parameters: {"name"=>"", "description"=>"", "challenge_type"=>"", "criteria"=>"", "public"=>true, "team_names"=>"Team A/Team B", "user_challenges"=>[], "challenge"=>{"name"=>"", "description"=>"", "challenge_type"=>"", "criteria"=>"", "public"=>true, "team_names"=>"Team A/Team B"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "challenges" ("name", "description", "challenge_type", "criteria", "public", "created_at", "updated_at", "team_names") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", ""], ["description", ""], ["challenge_type", ""], ["criteria", ""], ["public", "t"], ["created_at", "2017-12-04 02:19:02.549472"], ["updated_at", "2017-12-04 02:19:02.549472"], ["team_names", "Team A/Team B"]]
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 6.0ms)
+
+
+Started POST "/api/v1/challenges" for ::1 at 2017-12-03 21:19:05 -0500
+Processing by Api::V1::ChallengesController#create as JSON
+  Parameters: {"name"=>"", "description"=>"", "challenge_type"=>"", "criteria"=>"", "public"=>true, "team_names"=>"Team A/Team B", "user_challenges"=>[], "challenge"=>{"name"=>"", "description"=>"", "challenge_type"=>"", "criteria"=>"", "public"=>true, "team_names"=>"Team A/Team B"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "challenges" ("name", "description", "challenge_type", "criteria", "public", "created_at", "updated_at", "team_names") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", ""], ["description", ""], ["challenge_type", ""], ["criteria", ""], ["public", "t"], ["created_at", "2017-12-04 02:19:05.539091"], ["updated_at", "2017-12-04 02:19:05.539091"], ["team_names", "Team A/Team B"]]
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-03 21:19:16 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/v1/challenges" for ::1 at 2017-12-03 21:19:18 -0500
+Processing by Api::V1::ChallengesController#create as JSON
+  Parameters: {"name"=>"", "description"=>"", "challenge_type"=>"", "criteria"=>"", "public"=>true, "team_names"=>"Team A/Team B", "user_challenges"=>[], "challenge"=>{"name"=>"", "description"=>"", "challenge_type"=>"", "criteria"=>"", "public"=>true, "team_names"=>"Team A/Team B"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "challenges" ("name", "description", "challenge_type", "criteria", "public", "created_at", "updated_at", "team_names") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", ""], ["description", ""], ["challenge_type", ""], ["criteria", ""], ["public", "t"], ["created_at", "2017-12-04 02:19:18.850629"], ["updated_at", "2017-12-04 02:19:18.850629"], ["team_names", "Team A/Team B"]]
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-03 21:19:36 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-03 21:19:47 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-03 21:19:51 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/api/v1/challenges" for ::1 at 2017-12-03 21:19:53 -0500
+Processing by Api::V1::ChallengesController#create as JSON
+  Parameters: {"name"=>"", "description"=>"", "challenge_type"=>"", "criteria"=>"", "public"=>true, "team_names"=>"Team A/Team B", "user_challenges"=>[], "challenge"=>{"name"=>"", "description"=>"", "challenge_type"=>"", "criteria"=>"", "public"=>true, "team_names"=>"Team A/Team B"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "challenges" ("name", "description", "challenge_type", "criteria", "public", "created_at", "updated_at", "team_names") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", ""], ["description", ""], ["challenge_type", ""], ["criteria", ""], ["public", "t"], ["created_at", "2017-12-04 02:19:53.480517"], ["updated_at", "2017-12-04 02:19:53.480517"], ["team_names", "Team A/Team B"]]
+  [1m[35m (5.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-03 21:20:51 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/api/v1/challenges" for ::1 at 2017-12-03 21:20:56 -0500
+Processing by Api::V1::ChallengesController#create as JSON
+  Parameters: {"name"=>"", "description"=>"", "challenge_type"=>"", "criteria"=>"", "public"=>true, "team_names"=>"Team A/Team B", "user_challenges"=>[], "challenge"=>{"name"=>"", "description"=>"", "challenge_type"=>"", "criteria"=>"", "public"=>true, "team_names"=>"Team A/Team B"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "challenges" ("name", "description", "challenge_type", "criteria", "public", "created_at", "updated_at", "team_names") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", ""], ["description", ""], ["challenge_type", ""], ["criteria", ""], ["public", "t"], ["created_at", "2017-12-04 02:20:56.071636"], ["updated_at", "2017-12-04 02:20:56.071636"], ["team_names", "Team A/Team B"]]
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-03 21:21:28 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/v1/challenges" for ::1 at 2017-12-03 21:21:33 -0500
+Processing by Api::V1::ChallengesController#create as JSON
+  Parameters: {"name"=>"", "description"=>"", "challenge_type"=>"", "criteria"=>"", "public"=>true, "team_names"=>"Team A/Team B", "user_challenges"=>[], "challenge"=>{"name"=>"", "description"=>"", "challenge_type"=>"", "criteria"=>"", "public"=>true, "team_names"=>"Team A/Team B"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "challenges" ("name", "description", "challenge_type", "criteria", "public", "created_at", "updated_at", "team_names") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", ""], ["description", ""], ["challenge_type", ""], ["criteria", ""], ["public", "t"], ["created_at", "2017-12-04 02:21:33.346723"], ["updated_at", "2017-12-04 02:21:33.346723"], ["team_names", "Team A/Team B"]]
+  [1m[35m (5.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-03 21:22:01 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-03 21:22:15 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/v1/challenges" for ::1 at 2017-12-03 21:22:18 -0500
+Processing by Api::V1::ChallengesController#create as JSON
+  Parameters: {"name"=>"", "description"=>"", "challenge_type"=>"", "criteria"=>"", "public"=>true, "team_names"=>"Team A/Team B", "user_challenges"=>[], "challenge"=>{"name"=>"", "description"=>"", "challenge_type"=>"", "criteria"=>"", "public"=>true, "team_names"=>"Team A/Team B"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "challenges" ("name", "description", "challenge_type", "criteria", "public", "created_at", "updated_at", "team_names") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", ""], ["description", ""], ["challenge_type", ""], ["criteria", ""], ["public", "t"], ["created_at", "2017-12-04 02:22:18.012782"], ["updated_at", "2017-12-04 02:22:18.012782"], ["team_names", "Team A/Team B"]]
+  [1m[35m (5.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-04 08:26:02 -0500
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (6.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 40ms (Views: 7.6ms | ActiveRecord: 25.1ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-04 08:29:10 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 14ms (Views: 7.1ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/api/v1/challenges" for ::1 at 2017-12-04 08:43:16 -0500
+Processing by Api::V1::ChallengesController#index as HTML
+  [1m[36mChallenge Load (7.5ms)[0m  [1m[34mSELECT "challenges".* FROM "challenges"[0m
+  [1m[36mUserChallenge Load (0.4ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUserChallenge Load (0.2ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUserChallenge Load (0.3ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 3]]
+  [1m[36mUserChallenge Load (0.3ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 4]]
+  [1m[36mUserChallenge Load (0.2ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 5]]
+  [1m[36mUserChallenge Load (0.2ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 6]]
+  [1m[36mUserChallenge Load (0.2ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 7]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 8]]
+  [1m[36mUserChallenge Load (0.2ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 9]]
+  [1m[36mUserChallenge Load (0.2ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 10]]
+  [1m[36mUserChallenge Load (0.2ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 11]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 12]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 13]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 14]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 15]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 16]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 17]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 18]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 19]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 20]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 21]]
+  [1m[36mUserChallenge Load (0.2ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 22]]
+  [1m[36mUserChallenge Load (0.2ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 23]]
+  [1m[36mUserChallenge Load (0.2ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 24]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 25]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 26]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 27]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 28]]
+  [1m[36mUserChallenge Load (0.2ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 29]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 30]]
+  [1m[36mUserChallenge Load (0.2ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 31]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 32]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 33]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 34]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 35]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 36]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 37]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 38]]
+  [1m[36mUserChallenge Load (0.2ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 39]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 40]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 41]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 42]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 43]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 44]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 45]]
+  [1m[36mUserChallenge Load (0.2ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 46]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 47]]
+  [1m[36mUserChallenge Load (0.3ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 48]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 49]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 50]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 51]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 52]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 53]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 54]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 55]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 56]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 57]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 58]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUserChallenge Load (0.2ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 59]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUserChallenge Load (0.2ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 60]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 61]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 62]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 63]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 64]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 65]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 66]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 67]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 68]]
+  [1m[36mUserChallenge Load (0.2ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 69]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserChallenge Load (0.2ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 70]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 71]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 72]]
+  [1m[36mUserChallenge Load (0.2ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 73]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 74]]
+  [1m[36mUserChallenge Load (0.2ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 75]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 76]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 77]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 78]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 79]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 80]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 81]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 82]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 83]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 84]]
+  [1m[36mUserChallenge Load (0.1ms)[0m  [1m[34mSELECT "user_challenges".* FROM "user_challenges" WHERE "user_challenges"."challenge_id" = $1[0m  [["challenge_id", 85]]
+Completed 200 OK in 179ms (Views: 0.1ms | ActiveRecord: 34.2ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-12-04 08:52:06 -0500
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.2ms)
+
+
