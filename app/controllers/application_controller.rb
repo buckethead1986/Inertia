@@ -1,13 +1,15 @@
 class ApplicationController < ActionController::API
-  include ActionController::HttpAuthentication::Token::ControllerMethods
   before_action :authorized
 
   def issue_token(payload)
     JWT.encode(payload, "supersecretcode")
   end
 
+  def jwt_token
+      request.headers['Authorization']
+  end
+
   def current_user
-    authenticate_or_request_with_http_token do |jwt_token, options|
       begin
         decoded_token = JWT.decode(jwt_token, "supersecretcode")
 
@@ -18,7 +20,7 @@ class ApplicationController < ActionController::API
       if decoded_token[0]["user_id"]
         @current_user ||= User.find(decoded_token[0]["user_id"])
       else
-      end
+
     end
   end
 

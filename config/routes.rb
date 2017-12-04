@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       resources :challenges, only: [:index, :new, :create, :show, :update]
       resources :user_challenges, only: [:index, :new, :create, :show, :update]
       post "/auth", to: "sessions#create"
-      get "current_user", to: "sessions#show"
+      get "/current_user", to: "sessions#show"
     end
   end
 end
