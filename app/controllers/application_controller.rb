@@ -1,39 +1,31 @@
 class ApplicationController < ActionController::API
-  include ActionController::HttpAuthentication::Token::ControllerMethods
-  before_action :authorized
 
-
-
-
-
-  def issue_token(payload)
-    JWT.encode(payload, "supersecretcode")
+  def issue_token(user)
+    JWT.encode({user_id: user.id}, ENV['secret_key'], 'HS256')
   end
 
-
   def current_user
-    authenticate_or_request_with_http_token do |jwt_token, options|
-      begin
-        decoded_token = JWT.decode(jwt_token, "supersecretcode")
+    @user ||= User.find_by(id: user_id)
+  end
 
-      rescue JWT::DecodeError
-        return nil
-      end
+  def token
+    request.headers['Authorization']
+  end
 
-      if decoded_token[0]["user_id"]
-        @current_user ||= User.find(decoded_token[0]["user_id"])
-      else
-      end
+  def decoded_token
+    begin
+      # [{user_id: 1}, {algo: 'hs256'}]
+      JWT.decode(token, ENV['secret_key'], true, { :algorithm => 'HS256' })
+    rescue JWT::DecodeError
+      [{}]
     end
+  end
+
+  def user_id
+    decoded_token.first['user_id']
   end
 
   def logged_in?
     !!current_user
   end
-
-  def authorized
-    render json: {message: "Not welcome" }, status: 401 unless logged_in?
-  end
-
-
 end
