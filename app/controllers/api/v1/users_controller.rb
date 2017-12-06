@@ -4,6 +4,12 @@ class Api::V1::UsersController < ActionController::API
     render json: @users
   end
 
+  def show
+    @user = User.find_by(id: params[:id])
+
+    render json: @user
+  end
+
   def create
     @user = User.create(username: params[:username], password: params[:password])
     render json: @user.to_json
