@@ -1,7 +1,12 @@
 class Api::V1::UsersController < ActionController::API
   def index
     @users = User.all
-    render json: @users
+    render json: @users.to_json(:include => {:user_challenges => {:include => :challenge }})
+  end
+
+  def show
+    @user = User.find_by(id: params[:id])
+    render json: @users.to_json(:include => {:user_challenges => {:include => :challenge }})
   end
 
   def show
