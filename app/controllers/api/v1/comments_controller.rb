@@ -5,13 +5,13 @@ class Api::V1::CommentsController < ActionController::API
   end
 
   def create
-    @user = User.create(content: params[:content], user_id: params[:user_id], challenge_id: params[:challenge_id])
-    render json: @user.to_json
+    @comment = Comment.create(comments_params)
+    render json: @comment.to_json
   end
 
   private
 
-  def user_params
-    params.require(:user).permit(:username, :password)
+  def comments_params
+    params.require(:comment).permit(:content, :user_id, :challenge_id)
   end
 end
