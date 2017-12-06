@@ -1,7 +1,7 @@
 class Api::V1::CommentsController < ActionController::API
   def index
     @comments = Comment.all
-    render json: @comments
+    render json: @comments.to_json({:include => :user})
   end
 
   def create
