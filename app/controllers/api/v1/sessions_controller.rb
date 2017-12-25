@@ -5,11 +5,11 @@ class Api::V1::SessionsController < ApplicationController
     render json: {
       id: current_user.id,
       username: current_user.username
+
     }
   end
 
   def create
-
     user = User.find_by(username: params[:username])
     if user && user.authenticate(params[:password])
       payload = {user_id: user.id}

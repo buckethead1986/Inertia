@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :users, only: [:index, :new, :create, :show, :update]
+      # post "/users/:id", to:"users#update"
       resources :challenges, only: [:index, :new, :create, :show, :update]
       resources :user_challenges, only: [:index, :new, :create, :show, :update]
       resources :comments, only: [:index, :new, :create, :show]
