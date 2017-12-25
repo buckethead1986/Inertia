@@ -21,6 +21,6 @@ class Api::V1::ChallengesController < ActionController::API
   private
 
   def challenge_params
-    params.require(:challenge).permit(:name, :description, :challenge_type, :criteria, :team_names, :public, :user_created)
+    params.require(:challenge).permit(:name, :description, :challenge_type, :criteria, :team_names, :public, :user_created, :completed)
   end
 end
