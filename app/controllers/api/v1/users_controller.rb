@@ -10,6 +10,7 @@ class Api::V1::UsersController < ActionController::API
   end
 
   def create
+    
     @user = User.create(username: params[:username], password: params[:password], image_url: params[:image_url])
     render json: @user.to_json
   end
