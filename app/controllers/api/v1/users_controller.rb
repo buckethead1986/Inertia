@@ -14,10 +14,6 @@ class Api::V1::UsersController < ActionController::API
     render json: @user.to_json
   end
 
-  def new
-
-  end
-
   def update
     @user = User.find_by(id: params[:id])
     @user.tagline = user_params[:tagline]
