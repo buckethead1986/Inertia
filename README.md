@@ -33,9 +33,10 @@ nested attribute in the Challenges show and index route.
 This API is public and the only thing that requires authorization is posting to
 the user session in order to login. The rest of the information is accessible to
 anyone who goes to a route on the following base url:
-https://www.inertia-app.herokuapp.com.
+https://inertia-app.herokuapp.com/api/v1/.
 
 This public accessibility is mirrored in our front-end application. Users can
 find all other users and challenges through a user index and a challenge index
 respectively. Following that pattern, all comments are accessible via each
 challenge, and are therefore accessible to all users.
+https://inertial.herokuapp.com

@@ -10,7 +10,6 @@ class Api::V1::ChallengesController < ActionController::API
   end
 
   def new
-
   end
 
   def create
